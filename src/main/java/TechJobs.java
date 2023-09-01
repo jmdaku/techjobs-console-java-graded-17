@@ -60,6 +60,7 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
+                        //.toLowerCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -120,20 +121,21 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //loop through ArrayList
-        if(!someJobs.isEmpty()){
-            System.out.println("No Results");
+        if(someJobs.isEmpty()){
+            System.out.print("No Results");
         }else{
             int i;
             for (i = 0; i < someJobs.size(); i++) {
                 System.out.println(
-                    "/n" +
-                    "*****" + "/n" +
-                    "position type: "+ someJobs.get(i).get("position type") + "/n" +
-                    "name: " + someJobs.get(i).get("name")  + "/n" +
-                    "employer: " + someJobs.get(i).get("employer") + "/n" +
-                    "location: " + someJobs.get(i).get("location")  + "/n" +
-                    "core competency: "+ someJobs.get(i).get("core competency")  + "/n" +
-                    "*****" + "/n" + "/n"
+                    "\n" +
+                    "*****" + "\n" +
+                    "position type: "+ someJobs.get(i).get("position type") + "\n" +
+                    "name: " + someJobs.get(i).get("name")  + "\n" +
+                    "employer: " + someJobs.get(i).get("employer") + "\n" +
+                    "location: " + someJobs.get(i).get("location")  + "\n" +
+                    "core competency: "+ someJobs.get(i).get("core competency")  + "\n" +
+                    "*****"
+                    //+ "\n" + "\n"
                 );
         }
     }
