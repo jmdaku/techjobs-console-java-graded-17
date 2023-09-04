@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -77,7 +76,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if ((aValue.toLowerCase()).contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -95,22 +94,24 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
         // TODO - implement this method
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> someJobs = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        int i;
+          for(i = 0; i < allJobs.size(); i++) {
+              HashMap<String, String> oneJob = allJobs.get(i);
+              for(String oneJobValue: oneJob.values()) {
+                  if(!someJobs.contains(oneJob) && oneJobValue.equalsIgnoreCase(value)) {
+                      someJobs.add(oneJob);
+                      //can contains use hashmap?
+                  }
+              }
+          }
 
-            String aValue = row.get(value);
-
-            if (aValue.contains(value)) {
-                jobs.add(row);
-            }
-        }
-
-        return jobs;
-
+        return someJobs;
     }
+    /*The code that you write should not contain duplicate jobs. So, for example, if a listing has position type “Web - Front End” and name “Front end web dev” then searching for “web” should not include the listing twice. */
+
 
     /**
      * Read in data from a CSV file and store it in a list
