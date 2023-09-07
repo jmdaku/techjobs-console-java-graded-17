@@ -112,20 +112,10 @@ public class JobData {
                   if(aJobValue.toLowerCase().contains(value.toLowerCase()) && !someJobs.contains(aJob) ) {
                      someJobs.add(aJob);
                       //System.out.println(someJobs);
-
                   }
               }
-
-              //for (Map.Entry<String, Double> aJob :allJobs.entrySet()) {
-
           }
-
-       // for (Map.Entry<Integer, String> entry : gfg.entrySet())
-
-        //for (Map.Entry<String, Double> student : students.entrySet()) {
-
-
-        return someJobs;
+       return someJobs;
     }
 
     /**
