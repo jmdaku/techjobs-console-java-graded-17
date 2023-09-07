@@ -8,6 +8,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -99,19 +100,33 @@ public class JobData {
 
         int i;
           for(i = 0; i < allJobs.size(); i++) {
-              HashMap<String, String> oneJob = allJobs.get(i);
-              for(String oneJobValue: oneJob.values()) {
-                  if(!someJobs.contains(oneJob) && oneJobValue.equalsIgnoreCase(value)) {
-                      someJobs.add(oneJob);
+              HashMap<String, String> aJob = allJobs.get(i);
+              //for(String aJobValue: aJob.values()) {
+                  //if(!someJobs.contains(aJob) && aJobValue.equalsIgnoreCase(value)) {
+                      //someJobs.add(aJob);
                       //can contains use hashmap?
+
+              for(String aJobValue: aJob.values()) {
+                  //System.out.println(aJob);
+                  //System.out.println(aJobValue);
+                  if(aJobValue.toLowerCase().contains(value.toLowerCase()) && !someJobs.contains(aJob) ) {
+                     someJobs.add(aJob);
+                      //System.out.println(someJobs);
+
                   }
               }
+
+              //for (Map.Entry<String, Double> aJob :allJobs.entrySet()) {
+
           }
+
+       // for (Map.Entry<Integer, String> entry : gfg.entrySet())
+
+        //for (Map.Entry<String, Double> student : students.entrySet()) {
+
 
         return someJobs;
     }
-    /*The code that you write should not contain duplicate jobs. So, for example, if a listing has position type “Web - Front End” and name “Front end web dev” then searching for “web” should not include the listing twice. */
-
 
     /**
      * Read in data from a CSV file and store it in a list
