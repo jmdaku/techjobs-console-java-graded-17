@@ -121,9 +121,9 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //loop through ArrayList
-        if(someJobs.isEmpty()){
+        if (someJobs.isEmpty()) {
             System.out.print("No Results");
-        }else{
+        } else {
             int i;
             for (i = 0; i < someJobs.size(); i++) {
                 System.out.println(
